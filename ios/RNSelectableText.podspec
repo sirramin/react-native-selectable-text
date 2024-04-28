@@ -5,12 +5,12 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   RNSelectableText
                    DESC
-  s.homepage     = "https://github.com/alentoma/react-native-selectable-text"
+  s.homepage     = "https://github.com/armata99/react-native-selectable-text"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/author/RNSelectableText.git", :tag => "master" }
+  s.source       = { :git => "https://github.com/armata99/RNSelectableText.git", :tag => "master" }
   s.source_files  = "RNSelectableText*.{h,m}"
   s.requires_arc = true
 

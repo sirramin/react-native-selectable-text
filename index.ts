@@ -1,1 +1,1 @@
-export { SelectableText as SelectableText, IHighlights, NativeEvent, SelectableTextProps } from './demo/SelectableText'
+export { Index as SelectableText, IHighlights, NativeEvent, SelectableTextProps } from './src'

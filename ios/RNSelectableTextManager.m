@@ -3,7 +3,7 @@
 
 @implementation RNSelectableTextManager
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(RNSelectableText)
 
 - (UIView *)view
 {

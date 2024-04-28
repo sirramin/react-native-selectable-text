@@ -1,63 +1,29 @@
-import React from "react";
-import { Platform, StyleSheet, View, Text, TextInput } from "react-native";
-import { SelectableText } from "./SelectableText";
-import HTML, { CustomTextualRenderer } from 'react-native-render-html';
-import { ScrollView } from "react-native-gesture-handler";
+import React from 'react';
+import {View, StyleSheet, ScrollView, TextStyle} from 'react-native';
+import {SelectableText} from '@armata99/react-native-selectable-text';
 import { Dimensions } from "react-native";
+import HTML, {CustomTextualRenderer} from "react-native-render-html";
+
 const fSize = 30
-var p = {
+const pTag: TextStyle = {
   lineHeight: fSize * 1.7,
   fontSize: fSize,
   color: "white",
   paddingBottom: 5,
   textAlign: "left"
-
 }
 
-var classes = {
+const classes = {
   paddingLeft: fSize * 0.9,
   paddingRight: fSize * 0.95,
   backgroundColor: "black",
   minWidth: Dimensions.get("window").width,
   minHeight: Dimensions.get("window").height,
   maxWidth: "99%",
-  overflow: "hidden",
   flex: 1
 }
 
-
-const DivRenderer: CustomTextualRenderer = function DivRenderer({ TDefaultRenderer, ...props }) {
-  var txt = "";
-  Array.from(props.tnode.domNode?.children ?? []).forEach(x => {
-    if (x.data)
-      txt = x.data;
-  })
-
-  return (
-    <SelectableText
-      textComponentProps={{ multiline: true }}
-      menuItems={["Replace", "Cancel"]}
-      onSelection={console.log}
-      highlightColor={"red"}
-      highlights={[{ start: 0, end: 10, id:"test" }]}
-      style={p}
-      value={txt}
-    />
-  )
-}
-
-export default function App() {
-
-  return (
-    <View style={styles.container}>
-      <Text selectable></Text>
-      <ScrollView>
-        <HTML
-          classesStyles={{
-            chapter: classes
-          }}
-          source={{
-            html: `<div id="chapter-content" class="chapter" style="font-family: Arial, sans-serif, serif; font-size: 18px; line-height: 160%;">
+const htmlContent = `<div id="chapter-content" class="chapter" style="font-family: Arial, sans-serif, serif; font-size: 18px; line-height: 160%;">
               <p>Chapter 2165: My Little Heart
               </p>
               <p>Translator: EndlessFantasy Translation  Editor: EndlessFantasy Translation</p>
@@ -80,10 +46,39 @@ export default function App() {
               <p>Solemness filled the  tangyuan ‘s delicate little face as she said earnestly, “Even though you look very handsome when you’re angry, Second Uncle, you look even more handsome when you’re not angry!”
               </p>
               <p>Alen</p>
-        </div>` }}
-          renderers={{
-            p: DivRenderer
-          }}
+        </div>`;
+
+
+const DivRenderer: CustomTextualRenderer = function DivRenderer({ TDefaultRenderer, ...props }) {
+  let txt = "";
+  Array.from(props.tnode.domNode?.children ?? []).forEach((child: any) => {
+    if (child.data)
+      txt = child.data;
+  })
+
+  return (
+    <SelectableText
+      textComponentProps={{ multiline: true }}
+      menuItems={["Replace", "Cancel"]}
+      onSelection={console.log}
+      highlightColor={"red"}
+      highlights={[{ start: 0, end: 10, id:"test" }]}
+      style={pTag}
+      value={txt}
+     prependToChild={''}/>
+  )
+}
+
+export default function App() {
+
+  return (
+    <View style={styles.container}>
+      <ScrollView>
+        <HTML
+          contentWidth={Dimensions.get('window').width}
+          classesStyles={{chapter: classes}}
+          source={{html:  htmlContent}}
+          renderers={{p: DivRenderer}}
         />
       </ScrollView>
     </View>

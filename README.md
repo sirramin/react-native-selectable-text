@@ -1,7 +1,15 @@
 
 # react-native-selectable-text
 
-This is the updated version of @astrocoders/react-native-selectable-text.
+This is the updated version of public fork `@alentoma/react-native-selectable-text.`
+
+## armata99: what I have done?
+- new project structure and updated dependencies
+- rewrote the demo with newer react-native version
+- fixed a few small issues
+- added a feature I needed
+- scrambled the heck out of this document
+
 ## Demo
 
 ### Android
@@ -15,10 +23,10 @@ This is the updated version of @astrocoders/react-native-selectable-text.
 ## Usage
 
 ```javascript
-import { SelectableText } from "@alentoma/react-native-selectable-text";
+import {SelectableText} from '@armata99/react-native-selectable-text';
 
 // Use normally, it is a drop-in replacement for react-native/Text
-<SelectableText
+<Index
   menuItems={["Foo", "Bar"]}
   /* 
     Called when the user taps in a item of the selection menu:
@@ -34,14 +42,24 @@ import { SelectableText } from "@alentoma/react-native-selectable-text";
 
 ## Getting started
 
-`$ npm install @alentoma/react-native-selectable-text --save`
+I have **NOT** published this on NPM. Install it with repo URL if you need it.
 
-
-### Manual installation
-
-Create react-native.config.js in the root directory and execlude @alentoma/react-native-selectable-text from linking
-
+### ~~with npm~~
+```bash
+npm i @armata99/react-native-selectable-text
 ```
+
+### ~~with yarn~~
+```bash
+yarn add @armata99/react-native-selectable-text
+```
+
+
+### ~~Manual installation~~ (armata99: "Nope! Not necessary!")
+
+Create react-native.config.js in the root directory and execlude @armata99/react-native-selectable-text from linking
+
+```javascript
 module.exports = {
     dependencies: {
         "@alentoma/react-native-selectable-text": {
@@ -55,19 +73,19 @@ module.exports = {
 
 ```
 
-#### iOS - Binary Linking (Alternative 1)
+#### ~~iOS - Binary Linking (Alternative 1)~~
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `@alentoma/react-native-selectable-text` and add `RNSelectableText.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNSelectableText.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
-#### iOS - Pods (Alternative 2)
+#### iOS - Pods (Alternative 2) (armata99: "just do this one")
 
-1. Add `pod 'RNSelectableText', :path => '../node_modules/@alentoma/react-native-selectable-text/ios/RNSelectableText.podspec'` to your projects podfile
+1. Add `pod 'RNSelectableText', :path => '../node_modules/@armata99/react-native-selectable-text/ios/RNSelectableText.podspec'` to your projects podfile
 2. run `pod install`
 
-#### Android
+#### ~~Android~~ (armata99: "you don't need to do this part if autolinking is available")
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
 
@@ -85,17 +103,17 @@ module.exports = {
    ```
 
 ## Props
-| name | description | type | default |
-|--|--|--|--|
-| **value** | text content | string | "" |
-| **onSelection** | Called when the user taps in a item of the selection menu | ({ eventType: string, content: string, selectionStart: int, selectionEnd: int }) => void | () => {} |
-| **menuItems** | context menu items | array(string) | [] |
-| **style** | additional styles to be applied to text | Object | null |
-| **highlights** | array of text ranges that should be highlighted with an optional id | array({ id: string, start: int, end: int }) | [] |
-| **highlightColor** | highlight color |string | null |
-| **onHighlightPress** | called when the user taps the highlight  |(id: string) => void | () => {} |
-| **appendToChildren** | element to be added in the last line of text | ReactNode | null |
-| **TextComponent** | Text component used to render `value` | ReactNode | <Text> |
-| **textValueProp** | text value prop for TextComponent. Should be used when passing TextComponent. Defaults to 'children' which works for <Text> | string | 'children' |
-| **textComponentProps** | additional props to pass to TextComponent | object | null |
+|          Name          | Description                                                                                                                   | Type                                                                                       |    Default     |
+|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|:--------------:|
+|        `value`         | Text content                                                                                                                  | `string`                                                                                   |      `""`      |
+|     `onSelection`      | Called when the user taps in a item of the selection menu                                                                     | `({ eventType: string, content: string, selectionStart: int, selectionEnd: int }) => void` |   `() => {}`   |
+|      `menuItems`       | Context menu items                                                                                                            | `array(string)`                                                                            |      `[]`      |
+|        `style`         | Additional styles to be applied to text                                                                                       | `Object`                                                                                   |     `null`     |
+|      `highlights`      | Array of text ranges that should be highlighted with an optional id                                                           | `array({ id: string, start: int, end: int })`                                              |      `[]`      |
+|    `highlightColor`    | Highlight color                                                                                                               | `string`                                                                                   |     `null`     |
+|   `onHighlightPress`   | Called when the user taps the highlight                                                                                       | `(id: string) => void`                                                                     |   `() => {}`   |
+|   `appendToChildren`   | Element to be added in the last line of text                                                                                  | `ReactNode`                                                                                |     `null`     |
+|    `TextComponent`     | Text component used to render `value`                                                                                         | `ReactNode`                                                                                |    `<Text>`    |
+|    `textValueProp`     | Text value prop for TextComponent. Should be used when passing TextComponent. Defaults to 'children' which works for `<Text>` | `string`                                                                                   |  `'children'`  |
+|  `textComponentProps`  | Additional props to pass to TextComponent                                                                                     | `object`                                                                                   |     `null`     |
 

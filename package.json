@@ -1,9 +1,9 @@
 {
-    "name": "@alentoma/react-native-selectable-text",
+    "name": "@armata99/react-native-selectable-text",
     "version": "1.6.0",
     "description": "React Native component used to provide the features of pass different context menu items and events",
     "main": "index.ts",
-    "homepage": "https://github.com/alentoma/react-native-selectable-text",
+    "homepage": "https://github.com/armata99/react-native-selectable-text",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -16,7 +16,6 @@
         "react-native": "*"
     },
     "dependencies": {
-        "fast-memoize": "*",
-        "uuid": "*"
+        "fast-memoize": "*"
     }
 }
