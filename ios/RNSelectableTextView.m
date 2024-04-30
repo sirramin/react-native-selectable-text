@@ -165,9 +165,18 @@ UITextPosition* beginning;
 
     if (location == 0 && endLocation == 0) return;
 
-    [_backedTextInputView select:self];
-    [_backedTextInputView setSelectedRange:NSMakeRange(location, endLocation - location)];
+    NSInteger startRange = location;
+    NSInteger endRange = endLocation - location;
 
+    //this prevents descending range error
+    if (endRange < startRange) {
+        const NSInteger temp = startRange;
+        startRange = endRange;
+        endRange = temp;
+    }
+
+     [_backedTextInputView select:self];
+     [_backedTextInputView setSelectedRange:NSMakeRange(startRange, endRange)];
 }
 
 -(void) handleTap: (UITapGestureRecognizer *) gesture
