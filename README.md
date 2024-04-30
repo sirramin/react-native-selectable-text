@@ -26,7 +26,7 @@ This is the updated version of public fork `@alentoma/react-native-selectable-te
 import {SelectableText} from '@armata99/react-native-selectable-text';
 
 // Use normally, it is a drop-in replacement for react-native/Text
-<Index
+<SelectableText
   menuItems={["Foo", "Bar"]}
   /* 
     Called when the user taps in a item of the selection menu:
