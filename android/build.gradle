@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    namespace 'com.armata99.reactnativeselectabletext'
+    namespace 'com.alentoma.selectabletext'
     compileSdkVersion 34
     buildToolsVersion "34.0.0"
 
