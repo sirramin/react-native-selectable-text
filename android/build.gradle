@@ -13,8 +13,7 @@ apply plugin: 'com.android.library'
 
 android {
     namespace 'com.alentoma.selectabletext'
-    // compileSdkVersion safeExtGet("compileSdkVersion", 35)
-
+    compileSdkVersion rootProject.ext.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 35
     defaultConfig {
         // minSdkVersion safeExtGet("minSdkVersion", 24)
         // targetSdkVersion safeExtGet("targetSdkVersion", 35)
